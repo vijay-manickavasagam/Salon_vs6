@@ -1,0 +1,54 @@
+<!-- Vijay -->
+<div class="page-header">
+  <h1>Enter Your Appointment details</h1>
+</div>
+
+<%= form_for @appointment do |f| %>
+  <% if @appointment.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@client.errors.count, "error") %> prohibited
+      this client from being saved:</h2>
+    <ul>
+    <% @appointment.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+   <p>
+    <%= f.label :"Client ID" %><br>
+    <%= session[:login] %>
+    </p>
+  <p>
+
+  <p>
+  <%= f.label :Stylist %><br />
+  <%= f.collection_select :stylist_id, @stylist, :id, :first_name, :prompt => "Select a Stylist" %>
+  </p>
+  <p>
+  <%= f.label :Service %><br />
+  <%= f.collection_select :service_id, @service, :id, :service_name, :prompt => "Select a Service" %>
+  </p>
+  <%# @stylist.each do |stylist| %>
+<%# for stylist in Stylist.where(:salon_id => params[:id]) %>
+<%#= radio_button_tag "appointment[stylist_id]", stylist.id, @appointment.stylist_id == stylist.id %><%#= Stylist.name %>  
+   <!-- <div>
+       <%#= f.radio_box :salon_id, :first_name %>
+       <%#= radio_button_tag "appointment[stylist_id]", stylist.id, @appointment.stylist_id == stylist.id %><%#= Stylist.name %>
+   </div>
+<%# end %> -->
+</table>
+    <%#= f.select_tag 'salon_id', options_for_select(@salon.collect{ |s| [s.salon_name, s.salon_id] }) %>
+  </p>
+  </p>
+  <p>
+    <%= f.label :"Choose Date" %><br>
+    <%= f.date_field :"date" %>
+  </p>
+  <p>
+    <%= f.label :"Choose Time" %><br>
+    <%= f.time_select :"time" %>
+  </p>
+    <%= f.submit :"update" %>
+  </p>
+<% end %>

@@ -2,9 +2,6 @@ class ClientsController < ApplicationController
 #Vijay
 
 def show
-  #@client_show = Client.find_by(:id => )
-  #@client_show = Client.all
-# @client = Client.find(params[:id])
  @client = Client.find(params[:id])
 end
 

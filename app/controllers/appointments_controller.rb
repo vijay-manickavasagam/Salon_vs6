@@ -5,19 +5,24 @@ def show
 end
 
 def new
- @client = Client.new
+@appointment = Appointment.new
+@stylist = Stylist.where(:salon_id => params[:salon_id])
+@service = Service.where(:salon_id => params[:salon_id])
 end
 
 def create
- @client = Client.new(client_params)
- @client.user_id = session[:login]
- @client.save
- redirect_to @client
+ @appointment = Appointment.new(appointment_params)
+ @client = Client.find_by(:user_id => session[:login])
+ @appointment.client_id = @client.id
+  @salon = Salon.all
+ redirect_to @appointment_path
 end
 
 def index
   @user = User.find_by(:id => session[:login])
-  @client = Client.find_by(:id => @user.id)
+  @salon = Salon.all
+  @appointment = Appointment.new()
+  #redirect_to @new_appointment(@appointment)
 end
 
 def edit
@@ -40,7 +45,7 @@ def destroy
 end
 
 private
- def client_params
-   params.require(:client).permit(:first_name, :last_name, :user_id, :sex, :image_url, :phone, :email, :date_of_birth)
+ def appointment_params
+   params.require(:appointment).permit(:salon_id, :stylist_id, :service_id, :date, :time)
  end
 end

@@ -1,0 +1,26 @@
+<h1>Choose a Salon where you want to book an appointment</h1>
+
+<table>
+  <tr>
+    <td>Salon ID</td>
+    <td>Salon Name</td>
+  </tr>
+<% @salon.each do |salon| %>
+<tr>
+    <td><%= salon.id %></td>
+    <td><%= salon.salon_name %></td>
+    <td><%= link_to 'Book Appointment', new_appointment_path(:salon_id  => salon.id)%></td>
+  </tr>
+<% end %>
+</table>
+<!-- 
+<%#= form_for @appointments do |f| %>
+ <p> 
+    <%#= f.label :"Enter the Salon ID" %><br>
+    <%#= f.integer :salon_id %>
+  </p>
+ <p> 
+    <%#= f.submit :"Click to Proceed" %><br>
+  </p>
+<%# end %>
+ -->

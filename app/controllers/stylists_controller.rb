@@ -13,7 +13,7 @@ end
 def create
     @salon = Salon.find(params[:salon_id])
     @stylist = @salon.stylists.create(params[:stylist].permit(:first_name, :last_name, :user_id, :sex, :phone, :email, :date_of_birth, :image_url))
-    redirect_to salon_path(@salon)
+    #redirect_to salon_path(@salon)
     # @stylist = Stylist.new(stylist_params) 
     # @stylist.salon_id = session[:login]
     # @salon = Salon.find_by(:id => 'user_id')
