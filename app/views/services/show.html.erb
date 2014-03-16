@@ -1,0 +1,31 @@
+<!-- Eduardo -->
+
+<h2>Service</h2>
+
+<table>
+  <p>
+    <strong>Service name:</strong>
+    <%= @service.service_name %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%=@service.category_id %>
+  </p>
+
+    <p>
+    <strong>Price:</strong>
+    <%= @service.price %>
+  </p>
+
+    <p>
+    <strong>Description:</strong>
+    <%= @service.service_description %>
+  </p>
+</table>
+
+<li>
+<%= link_to 'Back', salon_path(@salon)%>
+</li>
+
+

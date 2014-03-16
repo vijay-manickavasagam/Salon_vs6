@@ -1,0 +1,27 @@
+<!-- vijay -->
+<h1>Welcome <%= @user.login %> </h1>
+<!-- <a href="/clients/new"> Complete your profile information. </a> -->
+<% if @client.user_id.present? %>
+<%= link_to "Update Your Profile", edit_client_path(@client) %>
+<% else %>
+<%= link_to "create Your Profile", new_client_path(@client) %>
+<% end %>
+
+<!-- <table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<%# @client.each do |client| %>
+<%# if client.present? %>
+  <tr>
+    <td><%#= client.first_name %><%#= client.last_name %></td>
+      </tr>
+  <%# else %>
+<%# end %>
+</table>
+<%# end %> -->
+

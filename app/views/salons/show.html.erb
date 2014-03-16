@@ -1,0 +1,55 @@
+<!-- Eduardo -->
+
+<h1><strong><%= @salon.salon_name %></strong></h1>
+
+
+<h2>Services</h2>
+
+ <% @service = @salon.services %>
+
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @service.each do | service | %>
+  <tr>
+    <td><%= service.service_name%></td>
+   <a ref> /</a>
+ <td><a href="/salons/<%= @salon.id %>/services/<%=service.id %>"> Show</a></td>
+  </tr>
+
+<% end %>
+</table>
+
+<h2> List of Stylists </h2>
+
+<% @stylist = @salon.stylists %>
+<% @stylist.each do | stylist | %>
+ <p>
+  <tr>
+    <td><%= stylist.first_name%> <%= stylist.last_name%></td>
+    <td><a href="/salons/<%= @salon.id %>/stylists/<%=stylist.id %>"> Show</a></td>
+  </tr>
+</p>
+<% end %>
+</table>
+<p>
+<%= link_to "Add New Stylist", new_salon_stylist_path(@salon) %>
+</p>
+<%= link_to 'Back', salon_path(@salon) %>
+| <%= link_to 'Edit', edit_salon_path(@salon) %>
+
+<%= link_to 'New service', new_salon_service_path(@salon) %>
+
+<li>
+<%= link_to 'Back', salon_path %>
+</li>
+
+
+
+

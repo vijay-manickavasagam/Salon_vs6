@@ -1,0 +1,14 @@
+<h1><strong><%= @salon.salon_name %></strong></h1>
+
+<%# @stylist.each do |stylist| %>
+  
+  <p> <img src =<%= @stylist.image_url %>> </img> </p>
+  <p>
+    Stylist Name: <%= @stylist.first_name %>  <%= @stylist.last_name %>
+  </p>
+
+  <p>
+    Stylist: <%= @stylist.first_name %>  <%= @stylist.last_name %>
+  </p>
+
+<%= link_to 'Back', salon_path %>
