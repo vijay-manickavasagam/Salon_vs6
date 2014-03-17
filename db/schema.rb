@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20140316234008) do
   create_table "salons", force: true do |t|
     t.integer  "user_id"
     t.string   "salon_name"
-    t.string   "owner_name"
     t.string   "contact_name"
     t.string   "phone"
     t.string   "address"
@@ -67,7 +66,6 @@ ActiveRecord::Schema.define(version: 20140316234008) do
 
   create_table "services", force: true do |t|
     t.integer  "salon_id"
-    t.integer  "category_id"
     t.string   "service_name"
     t.string   "service_description"
     t.datetime "created_at"
@@ -76,7 +74,7 @@ ActiveRecord::Schema.define(version: 20140316234008) do
   end
 
   create_table "stylists", force: true do |t|
-    t.integer  "salon_id"
+    t.string   "salon_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "sex"
@@ -86,6 +84,14 @@ ActiveRecord::Schema.define(version: 20140316234008) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_url"
+  end
+
+  create_table "time_slots", force: true do |t|
+    t.integer  "salon_stylist_service_id"
+    t.integer  "time_slot"
+    t.integer  "availability"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
