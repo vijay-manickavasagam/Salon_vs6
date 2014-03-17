@@ -1,5 +1,7 @@
 Salon1::Application.routes.draw do
 
+get "/appointments/summary" => 'appointments#summary'
+
 resources :salons do
  resources :comments
  resources :services

@@ -1,0 +1,19 @@
+<!-- Vijay -->
+<h1> Your list of appointments </h1>
+
+<table>
+<tr>
+	<td> App # </td>
+	<td> Date </td>
+	<td> Time </td>
+
+<% @appointment.each do |appointment| %>
+<tr>
+    <td><%= appointment.id %></td>
+    <td><%= appointment.date %></td>
+    <td><%= appointment.time.hour %>:00 Hours</td>
+    <td><%= link_to 'Delete', appointment_path(appointment),
+                        :method => :delete, data: { confirm: 'Are you sure?'}%></td>
+  </tr>
+<% end %>
+</table>

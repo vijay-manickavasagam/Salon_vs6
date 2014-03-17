@@ -3,51 +3,40 @@
   <h1>Sign Up for using this website</h1>
 </div>
 
-<%= form_for @client, :url => {:action => "update", :id => @client} do |f| %>
-  <% if @client.errors.any? %> 
+<%= form_for(@appointment, method: "put") do |f| %>
+  <% if @appointment.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@client.errors.count, "error") %> prohibited
       this client from being saved:</h2>
     <ul>
-    <% @client.errors.full_messages.each do |msg| %>
+    <% @appointment.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
   </div>
   <% end %>
-   <p> 
-    <%= f.label :"User ID" %><br>
-    <%= session[:login] %>
-    </p>
+  
   <p>
-    <%= f.label :"First name" %><br>
-    <%= f.text_field :first_name%>
-    </p>
-
-<p>
-    <%= f.label :"Last name" %><br>
-    <%= f.text_field :last_name %>
-</p>
-
-  <p>
-    <%= f.label :"Date of Birth" %><br>
-    <%= f.text_field :date_of_birth %>
-</p>
-
-  <p>
-    <%= f.label :"Gender" %><br>
-    <%= f.select :sex, [['Male','male'],['Female','female']] %>
-  </p>
-
-  <p>
-    <%= f.label :"Image URL" %><br>
-    <%= f.text_field :image_url %>
+  <%= f.label :"Stylist Name" %>
+  <%= @stylist.first_name %> 
+  <%#= f.collection_select :stylist_id, @stylist, :first_name, :id, :prompt => "Select a stylist" %>
   </p>
   <p>
-    <%= f.label :"email" %><br>
-    <%= f.email_field :email %>
+  <%= f.label :"Service Name" %>
+  <%= @service.service_name %><br />
+  <%#= f.collection_select :service_id, @service, :id, :service_name, :prompt => "Select a Service" %>
+  </p>
+  </table>
+  </p>
   </p>
   <p>
+    <%= f.label :"Choose Date" %><br>
+    <%= f.date_field :"date" %>
+  </p>
+  <p>
+    <%= f.label :"Choose Time" %><br>
+    <%= f.time_select :"time" %>
+  </p>
     <%= f.submit :"update" %>
   </p>
 <% end %>
