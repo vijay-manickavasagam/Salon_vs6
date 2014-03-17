@@ -8,7 +8,7 @@ class SalonsController < ApplicationController
   @salon = Salon.new(salon_params)
   @salon.user_id = session[:login]
   @salon.save
-  redirect_to salons_path
+  redirect_to salons_path(@salon)
 
     # linha que preciso digitar para inculir a valiadacao direito
     # if @salon.save

@@ -17,7 +17,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-     <a class="navbar-brand" href="#">Beaulty Now</a>
+     <a class="navbar-brand" href=/>Beaulty Now</a>
     </div>
 
      <ul class="nav navbar-nav navbar-right">
@@ -33,7 +33,7 @@
 
             <% else %>
 
-             <li><a href="/users/<%= user.id %>/">My Profile</a></li>
+             <li><a href="/clients/<%= user.client.id %>/">My Profile</a></li>
               <li><td><%= link_to 'Sign out ', session_path(session),:method => :delete, data: { confirm: 'Are you sure?'}%></td>
 
             <% end %>
