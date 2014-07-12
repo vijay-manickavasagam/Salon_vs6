@@ -12,7 +12,7 @@
     <th></th>
   </tr>
 
-<% salon.each do |salon| %>
+<% @user.salon.each do |salon| %>
   <tr>
     <td><%= salon.salon_name %></td>
     <td><%= link_to 'Show', salon_path(salon) %></td>
